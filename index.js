@@ -3,6 +3,9 @@ const app = express()
 const path = require("path")
 const { convert, toMoney } = require('./lib/convert')
 
+
+const port = process.env.PORT || 3000; 
+
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 app.use(express.static(path.join(__dirname, 'public')))
@@ -21,7 +24,7 @@ app.get("/cotacao", (req, res) => {
     }
 })
 
-app.listen(3000, error => {
+app.listen(port, error => {
     if (error) {
         console.log(error)
     } else {
